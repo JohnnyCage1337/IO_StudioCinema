@@ -1,3 +1,8 @@
+package com.example.io_app.DOMAIN;
+
+import com.example.io_app.DOMAIN.Film;
+import com.example.io_app.DOMAIN.Session;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
