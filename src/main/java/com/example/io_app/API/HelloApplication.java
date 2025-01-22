@@ -13,13 +13,20 @@ import javafx.scene.Node;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+
+    private static Stage mainStage;
+
+    public static Stage getMainStage() {
+        return mainStage;
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
+        mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/io_app/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        stage.setTitle("StudioCinema");
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("FilmSchedule");
         stage.setScene(scene);
-        stage.setMaximized(true);
         stage.show();
     }
 
@@ -28,16 +35,18 @@ public class HelloApplication extends Application {
     public void switchToMoviesManagement(ActionEvent event) {
         try {
             // Wczytanie nowego pliku FXML
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/io_app/hello-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/io_app/MoviesManagement.fxml"));
             Parent root = fxmlLoader.load();
 
             // Pobranie bieżącego okna
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = HelloApplication.getMainStage();
 
             // Ustawienie nowej sceny w bieżącym oknie
             stage.setScene(new Scene(root));
-            stage.setTitle("Zarządzanie Filmami");
+            stage.setTitle("Films");
             stage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
