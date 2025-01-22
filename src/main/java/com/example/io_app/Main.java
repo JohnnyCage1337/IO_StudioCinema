@@ -1,3 +1,9 @@
+package com.example.io_app;
+
+import com.example.io_app.DOMAIN.Film;
+import com.example.io_app.DOMAIN.Session;
+import com.example.io_app.DOMAIN.SessionManager;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
